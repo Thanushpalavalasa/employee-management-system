@@ -34,7 +34,9 @@ jobs:
 
       - name: Build and Push Backend Image
         run: |
+          echo "Docker user: ${{ secrets.DOCKER_USER }}"
           IMAGE=${{ secrets.DOCKER_USER }}/emp-backend:${{ github.sha }}
+          echo "Image: $IMAGE"
           docker build -t $IMAGE ./backend
           docker push $IMAGE
 

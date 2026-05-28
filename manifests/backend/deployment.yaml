@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: thanushdev01/emp-backend:13ae262305878f4c6a9d4d2df8bcb02fb36c9530
+        image: thanushdev01/emp-backend:4dc002cd7f3b4fc1f725d2438554032d018066c3
         ports:
         - containerPort: 8090
         env:

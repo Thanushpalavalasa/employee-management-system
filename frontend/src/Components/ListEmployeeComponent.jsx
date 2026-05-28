@@ -280,7 +280,7 @@ export default function FullPageEmployeeList() {
           <header className="employee-header">
             <EmpTrackLogo size={48} />
             <div className="title-wrap">
-              <h1 className="display-3">EmpTrack — Employee Directory</h1>
+              <h1 className="display-3">GITOPS-ARGOCD</h1>
               {/* <div className="subtitle">{loading ? 'Loading employees…' : `Displaying ${normalized.length} employee${normalized.length !== 1 ? 's' : ''}`}</div> */}
             </div>
 

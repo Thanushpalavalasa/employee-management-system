@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: YOUR_DOCKERHUB/emp-frontend:v1
+        image: thanushdev01/emp-frontend:v1
         ports:
         - containerPort: 80
 ---

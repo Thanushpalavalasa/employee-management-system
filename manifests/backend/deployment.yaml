@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: YOUR_DOCKERHUB/emp-backend:v1
+        image: thanushdev01/emp-backend:v1   # ← change this to trigger CD
         ports:
         - containerPort: 8090
         env:

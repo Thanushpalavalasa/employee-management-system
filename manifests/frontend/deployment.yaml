@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: thanushdev01/emp-frontend:1a4a599193bc5be342e900f5bd679f281cb511eb
+        image: thanushdev01/emp-frontend:f49166f210485d036b7b98340fe228464c75c20d
         ports:
         - containerPort: 80
 ---

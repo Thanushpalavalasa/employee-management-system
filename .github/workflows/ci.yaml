@@ -34,27 +34,23 @@ jobs:
 
       - name: Build and Push Backend Image
         run: |
-          echo "Docker user: ${{ secrets.DOCKER_USER }}"
-          IMAGE=${{ secrets.DOCKER_USER }}/emp-backend:${{ github.sha }}
-          echo "Image: $IMAGE"
+          IMAGE=thanushdev01/emp-backend:${{ github.sha }}
           docker build -t $IMAGE ./backend
           docker push $IMAGE
 
       - name: Build and Push Frontend Image
         run: |
-          IMAGE=${{ secrets.DOCKER_USER }}/emp-frontend:${{ github.sha }}
+          IMAGE=thanushdev01/emp-frontend:${{ github.sha }}
           docker build -t $IMAGE ./frontend
           docker push $IMAGE
 
       - name: Update Backend Image in Manifest
         run: |
-          IMAGE=${{ secrets.DOCKER_USER }}/emp-backend:${{ github.sha }}
-          sed -i "s|image: ${{ secrets.DOCKER_USER }}/emp-backend:.*|image: $IMAGE|" manifests/backend/deployment.yaml
+          sed -i "s|image: thanushdev01/emp-backend:.*|image: thanushdev01/emp-backend:${{ github.sha }}|" manifests/backend/deployment.yaml
 
       - name: Update Frontend Image in Manifest
         run: |
-          IMAGE=${{ secrets.DOCKER_USER }}/emp-frontend:${{ github.sha }}
-          sed -i "s|image: ${{ secrets.DOCKER_USER }}/emp-frontend:.*|image: $IMAGE|" manifests/frontend/deployment.yaml
+          sed -i "s|image: thanushdev01/emp-frontend:.*|image: thanushdev01/emp-frontend:${{ github.sha }}|" manifests/frontend/deployment.yaml
 
       - name: Commit and Push Manifest Changes
         run: |

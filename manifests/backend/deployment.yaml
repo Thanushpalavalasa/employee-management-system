@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: thanushdev01/emp-backend:v1   # ← change this to trigger CD
+        image: thanushdev01/emp-backend:v1
         ports:
         - containerPort: 8090
         env:
@@ -33,17 +33,11 @@ spec:
               key: MYSQL_PASSWORD
         - name: SPRING_JPA_HIBERNATE_DDL_AUTO
           value: update
-        readinessProbe:
-          httpGet:
-            path: /actuator/health
-            port: 8090
-          initialDelaySeconds: 30
-          periodSeconds: 10
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend-service        # must match nginx proxy_pass
+  name: backend-service
   namespace: employee-app
 spec:
   selector:

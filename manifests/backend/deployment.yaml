@@ -34,15 +34,3 @@ spec:
               key: MYSQL_PASSWORD
         - name: SPRING_JPA_HIBERNATE_DDL_AUTO
           value: update
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: backend-service
-  namespace: employee-app
-spec:
-  selector:
-    app: backend
-  ports:
-  - port: 8090
-    targetPort: 8090

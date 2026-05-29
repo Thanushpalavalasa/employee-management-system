@@ -4,7 +4,7 @@ metadata:
   name: frontend-service
   namespace: employee-app
 spec:
-  type: LoadBalancer        # ← exposes to internet
+  type: LoadBalancer
   selector:
     app: frontend
   ports:

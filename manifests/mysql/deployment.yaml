@@ -13,6 +13,8 @@ spec:
       labels:
         app: mysql
     spec:
+      nodeSelector:
+        eks.amazonaws.com/nodegroup: gitops-test
       containers:
       - name: mysql
         image: mysql:8.0

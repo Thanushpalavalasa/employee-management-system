@@ -14,8 +14,10 @@ spec:
       labels:
         app: frontend
     spec:
+      nodeSelector:
+        eks.amazonaws.com/nodegroup: gitops-test
       containers:
       - name: frontend
-        image: thanushdev01/emp-frontend:7319c3bac007858d90ae65d0fc49db42d26269b2
+        image: thanushdev01/emp-frontend:0d60073af362db89afb012b92d65dec3e076dd82
         ports:
         - containerPort: 80

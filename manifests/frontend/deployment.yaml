@@ -18,6 +18,6 @@ spec:
         eks.amazonaws.com/nodegroup: gitops-test
       containers:
       - name: frontend
-        image: thanushdev01/emp-frontend:0d60073af362db89afb012b92d65dec3e076dd82
+        image: thanushdev01/emp-frontend:79308aa1c1295202de535bc59807a0f45901fead
         ports:
         - containerPort: 80

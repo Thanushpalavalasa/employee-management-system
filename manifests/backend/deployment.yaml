@@ -18,7 +18,7 @@ spec:
         eks.amazonaws.com/nodegroup: gitops-test
       containers:
       - name: backend
-        image: thanushdev01/emp-backend:79308aa1c1295202de535bc59807a0f45901fead
+        image: thanushdev01/emp-backend:848d71e9ff329d7188a8a0dee28db48acf14180b
         ports:
         - containerPort: 8090
         env:

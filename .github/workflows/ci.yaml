@@ -47,16 +47,29 @@ jobs:
 
       - name: Update Backend Image in Manifest
         run: |
-         sed -i "s|image: thanushdev01/emp-backend:.*|image: thanushdev01/emp-backend:${{ github.sha }}|" manifests/base/backend/deployment.yaml
+          sed -i "s|image: thanushdev01/emp-backend:.*|image: thanushdev01/emp-backend:${{ github.sha }}|" manifests/base/backend/deployment.yaml
+
       - name: Update Frontend Image in Manifest
         run: |
           sed -i "s|image: thanushdev01/emp-frontend:.*|image: thanushdev01/emp-frontend:${{ github.sha }}|" manifests/base/frontend/deployment.yaml
+
+      - name: Verify Updated Images
+        run: |
+          echo "Backend image:"
+          grep image manifests/base/backend/deployment.yaml
+
+          echo "Frontend image:"
+          grep image manifests/base/frontend/deployment.yaml
 
       - name: Commit and Push Manifest Changes
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          git add manifests/backend/deployment.yaml manifests/frontend/deployment.yaml
+
+          git add manifests/base/backend/deployment.yaml
+          git add manifests/base/frontend/deployment.yaml
+
           git commit -m "Update images to ${{ github.sha }}" || echo "No changes to commit"
+
           git remote set-url origin https://${{ secrets.GIT_TOKEN }}@github.com/${{ github.repository }}.git
           git push

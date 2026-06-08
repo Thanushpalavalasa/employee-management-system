@@ -47,11 +47,10 @@ jobs:
 
       - name: Update Backend Image in Manifest
         run: |
-          sed -i "s|image: thanushdev01/emp-backend:.*|image: thanushdev01/emp-backend:${{ github.sha }}|" manifests/backend/deployment.yaml
-
+         sed -i "s|image: thanushdev01/emp-backend:.*|image: thanushdev01/emp-backend:${{ github.sha }}|" manifests/base/backend/deployment.yaml
       - name: Update Frontend Image in Manifest
         run: |
-          sed -i "s|image: thanushdev01/emp-frontend:.*|image: thanushdev01/emp-frontend:${{ github.sha }}|" manifests/frontend/deployment.yaml
+          sed -i "s|image: thanushdev01/emp-frontend:.*|image: thanushdev01/emp-frontend:${{ github.sha }}|" manifests/base/frontend/deployment.yaml
 
       - name: Commit and Push Manifest Changes
         run: |
